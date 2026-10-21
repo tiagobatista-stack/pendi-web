@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pendi Lab</title>
+  </head>
+  <body>
+    <a class="pular" href="#form-titulo">Ir para o formulário</a>
+    <header class="topo">
+      <div>
+        <h1>Pendi Lab</h1>
+        <p class="aviso">Ambiente de treinamento: use apenas dados fictícios.</p>
+      </div>
+      <button type="button" id="btn-exportar" class="claro">Exportar JSON</button>
+    </header>
+
+    <section class="painel" aria-labelledby="form-titulo">
+      <h2 id="form-titulo">Nova pendência</h2>
+      <form id="form-pendencia" novalidate>
+        <div class="campo">
+          <label for="f-title">Título (obrigatório)</label>
+          <input id="f-title" name="title" type="text" maxlength="120" autocomplete="off" aria-describedby="e-title" />
+          <p class="erro" id="e-title" data-error-for="title" role="alert"></p>
+        </div>
+        <div class="campo">
+          <label for="f-description">Descrição</label>
+          <textarea id="f-description" name="description" rows="3" maxlength="500"></textarea>
+        </div>
+        <div class="linha">
+          <div class="campo">
+            <label for="f-status">Status</label>
+            <select id="f-status" name="status" aria-describedby="e-status">
+              <option value="backlog">Backlog</option>
+              <option value="andamento">Em andamento</option>
+              <option value="revisao">Em revisão</option>
+              <option value="concluido">Concluído</option>
+            </select>
+            <p class="erro" id="e-status" data-error-for="status"></p>
+          </div>
+          <div class="campo">
+            <label for="f-priority">Prioridade</label>
+            <select id="f-priority" name="priority" aria-describedby="e-priority">
+              <option value="baixa">Baixa</option>
+              <option value="media" selected>Média</option>
+              <option value="alta">Alta</option>
+            </select>
+            <p class="erro" id="e-priority" data-error-for="priority"></p>
+          </div>
+          <div class="campo">
+            <label for="f-dueDate">Prazo (opcional)</label>
+            <input id="f-dueDate" name="dueDate" type="date" aria-describedby="e-dueDate" />
+            <p class="erro" id="e-dueDate" data-error-for="dueDate"></p>
+          </div>
+        </div>
+        <div class="acoes">
+          <button type="submit" id="btn-salvar">Cadastrar</button>
+          <button type="button" id="btn-cancelar" class="secundario" hidden>Cancelar edição</button>
+        </div>
+        <p id="mensagem-estado" class="estado" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="painel" aria-labelledby="filtros-titulo">
+      <h2 id="filtros-titulo">Filtros</h2>
+      <div class="linha filtros">
+        <div class="campo">
+          <label for="filtro-texto">Buscar por texto</label>
+          <input id="filtro-texto" type="search" autocomplete="off" />
+        </div>
+        <div class="campo">
+          <label for="filtro-prioridade">Prioridade</label>
+          <select id="filtro-prioridade">
+            <option value="">Todas</option>
+            <option value="baixa">Baixa</option>
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+          </select>
+        </div>
+        <div class="campo acoes-filtro">
+          <button type="button" id="btn-limpar-filtros" class="secundario">Limpar filtros</button>
+        </div>
+      </div>
+      <p id="indicadores" class="estado" role="status" aria-live="polite"></p>
+    </section>
+
+    <main class="kanban" aria-label="Quadro Kanban de pendências">
+      <section class="coluna" data-status="backlog" aria-labelledby="col-backlog">
+        <h2 id="col-backlog">Backlog <span class="contador" aria-label="0 pendências">0</span></h2>
+        <p class="vazio">Nenhuma pendência neste status.</p>
+        <ul class="cartoes"></ul>
+      </section>
+      <section class="coluna" data-status="andamento" aria-labelledby="col-andamento">
+        <h2 id="col-andamento">Em andamento <span class="contador" aria-label="0 pendências">0</span></h2>
+        <p class="vazio">Nenhuma pendência neste status.</p>
+        <ul class="cartoes"></ul>
+      </section>
+      <section class="coluna" data-status="revisao" aria-labelledby="col-revisao">
+        <h2 id="col-revisao">Em revisão <span class="contador" aria-label="0 pendências">0</span></h2>
+        <p class="vazio">Nenhuma pendência neste status.</p>
+        <ul class="cartoes"></ul>
+      </section>
+      <section class="coluna" data-status="concluido" aria-labelledby="col-concluido">
+        <h2 id="col-concluido">Concluído <span class="contador" aria-label="0 pendências">0</span></h2>
+        <p class="vazio">Nenhuma pendência neste status.</p>
+        <ul class="cartoes"></ul>
+      </section>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,287 @@
+:root {
+  --cor-fundo: #f4f6f8;
+  --cor-texto: #1f2933;
+  --cor-suave: #52606d;
+  --cor-borda: #cbd2d9;
+  --cor-destaque: #1d4e89;
+  --cor-superficie: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.5;
+}
+
+.topo {
+  background: var(--cor-destaque);
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.pular {
+  position: absolute;
+  left: 0.5rem;
+  top: -4rem;
+  background: #fff;
+  color: var(--cor-destaque);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  z-index: 10;
+}
+
+.pular:focus {
+  top: 0.5rem;
+}
+
+button.claro {
+  background: #fff;
+  color: var(--cor-destaque);
+  border-color: #fff;
+}
+
+button.claro:focus-visible {
+  outline-color: #fff;
+}
+
+button {
+  min-height: 2.75rem;
+}
+
+.btn-excluir {
+  background: #fff;
+  color: #b42318;
+  border-color: #b42318;
+}
+
+.cartao[data-priority='alta'] {
+  border-left-color: #b42318;
+}
+
+.cartao[data-priority='media'] {
+  border-left-color: #b54708;
+}
+
+.cartao[data-priority='baixa'] {
+  border-left-color: #027a48;
+}
+
+.topo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.aviso {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+}
+
+.kanban {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.coluna {
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 0.75rem;
+  min-height: 8rem;
+}
+
+.coluna h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.contador {
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  padding: 0 0.6rem;
+  font-size: 0.85rem;
+}
+
+.vazio {
+  margin: 0;
+  color: var(--cor-suave);
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+.vazio[hidden] {
+  display: none;
+}
+
+.painel {
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.painel h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.1rem;
+}
+
+.campo {
+  margin-bottom: 0.75rem;
+  min-width: 0;
+}
+
+.campo label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+  width: 100%;
+  font: inherit;
+  padding: 0.5rem;
+  border: 1px solid var(--cor-suave);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--cor-texto);
+}
+
+.campo [aria-invalid='true'] {
+  border-color: #b42318;
+  border-width: 2px;
+}
+
+.erro {
+  margin: 0.25rem 0 0;
+  color: #b42318;
+  font-size: 0.875rem;
+  min-height: 0;
+}
+
+.linha {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--cor-destaque);
+  background: var(--cor-destaque);
+  color: #fff;
+}
+
+button.secundario,
+.btn-editar {
+  background: #fff;
+  color: var(--cor-destaque);
+}
+
+button[hidden] {
+  display: none;
+}
+
+.estado {
+  margin: 0.5rem 0 0;
+  color: var(--cor-suave);
+  font-size: 0.9rem;
+}
+
+.cartoes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.cartao {
+  border: 1px solid var(--cor-borda);
+  border-left-width: 5px;
+  border-radius: 6px;
+  padding: 0.5rem;
+  overflow-wrap: anywhere;
+}
+
+.cartao h3 {
+  margin: 0 0 0.25rem;
+  font-size: 0.95rem;
+}
+
+.cartao .descricao,
+.cartao .meta {
+  margin: 0 0 0.25rem;
+  font-size: 0.85rem;
+}
+
+.cartao .meta {
+  color: var(--cor-suave);
+}
+
+.acoes-filtro {
+  align-self: end;
+}
+
+.mover {
+  margin: 0.25rem 0 0.5rem;
+}
+
+.mover label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--cor-suave);
+}
+
+.mover select {
+  width: 100%;
+  font: inherit;
+  padding: 0.35rem;
+  border: 1px solid var(--cor-suave);
+  border-radius: 6px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--cor-destaque);
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .kanban {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .kanban,
+  .linha {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
