@@ -17,7 +17,11 @@
 
     <section class="painel" aria-labelledby="form-titulo">
       <h2 id="form-titulo">Nova pendência</h2>
-      <form id="form-pendencia" novalidate>
+      <p class="ajuda" id="ajuda-form">
+        Preencha o título (obrigatório) e, se quiser, descrição, prioridade e prazo.
+        Use apenas dados fictícios. Depois de cadastrar, mude o status direto no cartão.
+      </p>
+      <form id="form-pendencia" novalidate aria-describedby="ajuda-form">
         <div class="campo">
           <label for="f-title">Título (obrigatório)</label>
           <input id="f-title" name="title" type="text" maxlength="120" autocomplete="off" aria-describedby="e-title" />
