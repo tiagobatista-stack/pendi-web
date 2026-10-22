@@ -3,3 +3,5 @@ dist
 .env
 .env.*
 evidencias-privadas/
+playwright-report/
+test-results/
